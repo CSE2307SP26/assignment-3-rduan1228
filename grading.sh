@@ -16,7 +16,7 @@ while IFS= read -r WUSTL_KEY; do
     javac Cipher.java 
     java Cipher > "$OUTPUT_FILE" 
     if [ -f "$OUTPUT_FILE" ]; then
-        if [[ $(diff $OUTPUT_FILE $EXPECTED_OUTPUT -q) == "" ]]; then
+        if [[ $(diff $OUTPUT_FILE $EXPECTED_OUTPUT -q -W) == "" ]]; then
             echo "$WUSTL_KEY 1"
         else
             echo "$WUSTL_KEY 0"
